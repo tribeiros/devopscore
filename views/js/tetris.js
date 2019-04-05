@@ -434,7 +434,7 @@ Tetris.prototype.newTetromino = function() {
 };
 
 var width = window.innerWidth,
-    boardDiv = 20*Math.round(window.innerWidth/20),
+    boardDiv = 21.2*Math.round(window.innerWidth/20),
     boards = 8,
     bWidth = boardDiv/boards,
     tetrisInstances = [];
