@@ -156,20 +156,46 @@ Tetris.prototype.init = function(){
                 if (self.checkMovement(curPiece, -1, 0)) {
                     curPiece.x--;
                 }
+                var element = document.getElementById("meetup");
+                document.getElementById("text").innerHTML = "READY!";
+                setInterval(function(){
+                  document.getElementById("text").innerHTML = "GO!";
+                  element.classList.add("game");
+                }, 2000);
                 break;
             case 39:
                 if (self.checkMovement(curPiece, 1, 0)) {
                     curPiece.x++;
                 }
+                var element = document.getElementById("meetup");
+                document.getElementById("text").innerHTML = "READY!";
+                setInterval(function(){
+                  document.getElementById("text").innerHTML = "GO!";
+                  element.classList.add("game");
+                }, 2000);
                 break;
             case 40:
                 if (self.checkMovement(curPiece, 0, 1)) {
                     curPiece.y++;
                 }
+                var element = document.getElementById("meetup");
+                document.getElementById("text").innerHTML = "READY!";
+                setInterval(function(){
+                  document.getElementById("text").innerHTML = "GO!";
+                  element.classList.add("game");
+                }, 2000);
+                
                 break;
             case 32:
             case 38:
                 curPiece.data = self.rotateTetrimono(curPiece);
+                var element = document.getElementById("meetup");
+                document.getElementById("text").innerHTML = "READY!";
+                setInterval(function(){
+                  document.getElementById("text").innerHTML = "GO!";
+                  element.classList.add("game");
+                }, 2000);
+
                 break;
             }
     });
