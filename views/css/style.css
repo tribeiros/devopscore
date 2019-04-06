@@ -80,6 +80,21 @@ p {
   text-align: center;
 }
 
+#text::after {
+  content: "press enter";
+  color: green;
+  font-size: 20px;
+  font-family: Arial;
+  position: absolute;
+  bottom: -15px;
+  left: -2px;
+  right: -2px;
+}
+
+.enter::after {
+  display: none;
+}
+
 body{
   background: #141414;
   overflow:hidden;
@@ -100,8 +115,8 @@ canvas{
 .game {
   -webkit-animation-name: fadeOut;
   animation-name: fadeOut;
-  -webkit-animation-duration: 3s;
-  animation-duration: 3s;
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
   -webkit-animation-fill-mode: both;
   animation-fill-mode: both;
 }
