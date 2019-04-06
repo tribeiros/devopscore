@@ -8,6 +8,16 @@
     font-style: normal;
 }
 
+@font-face {
+  font-family: 'NexaBold';
+    src:  url('NexaBold.ttf.woff') format('woff'),
+    url('NexaBold.ttf.svg#NexaBold') format('svg'),
+    url('NexaBold.ttf.eot'),
+    url('NexaBold.eot?#iefix') format('embedded-opentype'); 
+    font-weight: normal;
+    font-style: normal;
+}
+
 @-webkit-keyframes bounceInUp {
   0% {
      opacity: 0;
@@ -65,8 +75,8 @@
 .bounceInUp {
   -webkit-animation-name: bounceInUp;
   animation-name: bounceInUp;
-  -webkit-animation-duration: 10s;
-  animation-duration: 10s;
+  -webkit-animation-duration: 7s;
+  animation-duration: 7s;
   -webkit-animation-fill-mode: both;
   animation-fill-mode: both;
 }
@@ -82,13 +92,14 @@ p {
 
 #text::after {
   content: "press enter";
-  color: green;
+  color: orange;
   font-size: 20px;
-  font-family: Arial;
+  font-family: 'NexaBold';
   position: absolute;
-  bottom: -15px;
+  bottom: -20px;
   left: -2px;
   right: -2px;
+  opacity: .5;
 }
 
 .enter::after {
@@ -115,8 +126,8 @@ canvas{
 .game {
   -webkit-animation-name: fadeOut;
   animation-name: fadeOut;
-  -webkit-animation-duration: 1s;
-  animation-duration: 1s;
+  -webkit-animation-duration: 2s;
+  animation-duration: 2s;
   -webkit-animation-fill-mode: both;
   animation-fill-mode: both;
 }
