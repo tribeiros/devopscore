@@ -109,6 +109,7 @@ p {
 body{
   background: #141414;
   overflow:hidden;
+  margin: 0;
 }
 
 canvas{
