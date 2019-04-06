@@ -71,6 +71,18 @@
   }
 }
 
+@keyframes starting {
+  0% {
+    opacity: 0;
+  }
+  90% {
+    opacity: 0;
+  }
+  100% {
+  opacity: .5;
+  }
+}
+
 
 .bounceInUp {
   -webkit-animation-name: bounceInUp;
@@ -100,6 +112,8 @@ p {
   left: -2px;
   right: -2px;
   opacity: .5;
+  animation-name: starting;
+  animation-duration: 7s;
 }
 
 .enter::after {
