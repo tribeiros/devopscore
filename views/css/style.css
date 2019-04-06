@@ -91,7 +91,7 @@ p {
 }
 
 #text::after {
-  content: "press enter";
+  content: "press enter to start";
   color: orange;
   font-size: 20px;
   font-family: 'NexaBold';
@@ -126,8 +126,8 @@ canvas{
 .game {
   -webkit-animation-name: fadeOut;
   animation-name: fadeOut;
-  -webkit-animation-duration: 2s;
-  animation-duration: 2s;
+  -webkit-animation-duration: 3s;
+  animation-duration: 3s;
   -webkit-animation-fill-mode: both;
   animation-fill-mode: both;
 }
