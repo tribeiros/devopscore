@@ -138,7 +138,7 @@ Tetris.prototype.init = function(){
                 colors: ['rgb(0,0,0)', 'rgb(0,0,0)', 'rgb(0,0,0)']
             };
 
-            if(Math.random() > 0.15 && y > halfHeight){
+            if(Math.random() > 0.1 && y > halfHeight){
                 board[x][y] = {
                     data: 1,
                     colors: tetrominos[Math.floor(Math.random() * tetrominos.length)].colors
@@ -172,11 +172,10 @@ Tetris.prototype.init = function(){
         switch (e.keyCode) {
           case 13:
                 document.getElementById("text").classList.add('enter');
-                var element = document.getElementById("meetup");
                 document.getElementById("text").innerHTML = "READY!";
                 setInterval(function(){
                   document.getElementById("text").innerHTML = "GO!";
-                  element.classList.add("game");
+                  document.getElementById("meetup").classList.add("game");
                 }, 1000);
                 self.reset();
                 break;
@@ -238,6 +237,7 @@ Tetris.prototype.reset = function(){
         halfHeight  = boardHeight/2,
         curPiece    = this.curPiece,
         x = 0, y = 0;
+
      // init board
     for (x = 0; x <= boardWidth; x++) {
         board[x] = [];
@@ -507,18 +507,6 @@ Tetris.prototype.loseScreen = function() {
     }else{
         this.init();
     }
-};
-
-
-// Lose animation
-Tetris.prototype.clearScreen = function() {
-    
-
-  
-
-    
-        this.init();
-
 };
 
 // adds the piece as part of the board
