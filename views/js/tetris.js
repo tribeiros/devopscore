@@ -169,6 +169,9 @@ Tetris.prototype.init = function(){
 
     window.addEventListener('keydown', function (e) {
         switch (e.keyCode) {
+          case 73:
+                self.init();
+                break;
           case 13:
                 document.getElementById("text").classList.add('enter');
                 document.getElementById("text").innerHTML = "READY!";
