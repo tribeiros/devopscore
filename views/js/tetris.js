@@ -1,5 +1,6 @@
 'use strict';
 
+// defining space between boardDiv
 var w = window,
     d = document,
     e = d.documentElement,
@@ -9,10 +10,8 @@ var w = window,
 
 if (x >= 1400){
   var boardDivSpace = 20;
-  alert(boardDivSpace)
 } else {
   var boardDivSpace = 21.2;
-  alert(boardDivSpace)
 }
 
 
@@ -248,7 +247,7 @@ Tetris.prototype.reset = function(){
                 colors: ['rgb(0,0,0)', 'rgb(0,0,0)', 'rgb(0,0,0)']
             };
 
-            if(Math.random() > 0.15 && y > halfHeight){
+            if(Math.random() > 0 && y > halfHeight){
                 board[x][y] = {
                     data: 1,
                     colors: tetrominos[Math.floor(Math.random() * tetrominos.length)].colors
