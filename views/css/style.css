@@ -100,6 +100,7 @@ p {
   padding-top: 50px;
   font-size: 80px;
   text-align: center;
+  text-shadow: 0 0 50px #141414;
 }
 
 #text::after {
