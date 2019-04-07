@@ -77,7 +77,7 @@ var Tetris = function(x,y,width,height){
     this.posY = y || 0;
 
     this.width  = width || window.innerWidth;
-    this.height = height || window.innerHeight;
+    this.height = height || window.innerHeight-2;
 
     this.bgCanvas = document.createElement('canvas');
     this.fgCanvas = document.createElement('canvas');
@@ -228,7 +228,7 @@ Tetris.prototype.reset = function(){
     // init the board
     this.board = [];
     this.boardWidth =  Math.floor(this.width / this.unitSize);
-    this.boardHeight = Math.floor(this.height / this.unitSize);
+    this.boardHeight = Math.floor(this.height / this.unitSize - 1);
 
     var board       = this.board,
         boardWidth  = this.boardWidth,
@@ -236,7 +236,6 @@ Tetris.prototype.reset = function(){
         halfHeight  = boardHeight/2,
         curPiece    = this.curPiece,
         x = 0, y = 0;
-
      // init board
     for (x = 0; x <= boardWidth; x++) {
         board[x] = [];
