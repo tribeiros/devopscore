@@ -79,7 +79,7 @@ var Tetris = function(x,y,width,height){
     this.posY = y || 0;
 
     this.width  = width || window.innerWidth;
-    this.height = height || window.innerHeight - 2;
+    this.height = height || window.innerHeight - 2; // floor start
 
     this.bgCanvas = document.createElement('canvas');
     this.fgCanvas = document.createElement('canvas');
@@ -230,7 +230,7 @@ Tetris.prototype.reset = function(){
     // init the board
     this.board = [];
     this.boardWidth =  Math.floor(this.width / this.unitSize);
-    this.boardHeight = Math.floor(this.height / this.unitSize - floorReset); // floor on reset
+    this.boardHeight = Math.floor(this.height / this.unitSize - 1); // floor on reset
 
     var board       = this.board,
         boardWidth  = this.boardWidth,
