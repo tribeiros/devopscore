@@ -156,6 +156,7 @@ Tetris.prototype.init = function(){
                 document.getElementById("text").classList.add('enter');
                 var element = document.getElementById("meetup");
                 document.getElementById("text").innerHTML = "READY!";
+                self.reset();
                 setInterval(function(){
                   document.getElementById("text").innerHTML = "GO!";
                   element.classList.add("game");
@@ -191,6 +192,107 @@ Tetris.prototype.init = function(){
     // assign the first tetri
     this.newTetromino();
     this.update();
+};
+
+Tetris.prototype.reset = function(){
+    this.curPiece = {
+        data : null,
+        colors : [0,0,0],
+        x : 0,
+        y : 0,
+    };
+
+    this.lastMove = Date.now();
+    this.curSpeed = 50+Math.random()*50;
+    this.unitSize = 20;
+    this.linesCleared = 0;
+    this.level = 0;
+    this.loseBlock = 0;
+
+    // init the board
+    this.board = [];
+    this.boardWidth =  Math.floor(this.width / this.unitSize);
+    this.boardHeight = Math.floor(this.height / this.unitSize);
+
+    var board       = this.board,
+        boardWidth  = this.boardWidth,
+        boardHeight = this.boardHeight,
+        halfHeight  = boardHeight/2,
+        curPiece    = this.curPiece,
+        x = 0, y = 0;
+
+     // init board
+    for (x = 0; x <= boardWidth; x++) {
+        board[x] = [];
+        for (y = 0; y <= boardHeight; y++) {
+
+             board[x][y] = {
+                data: 0,
+                colors: ['rgb(0,0,0)', 'rgb(0,0,0)', 'rgb(0,0,0)']
+            };
+
+            if(Math.random() > 0.15 && y > halfHeight){
+                board[x][y] = {
+                    data: 1,
+                    colors: tetrominos[Math.floor(Math.random() * tetrominos.length)].colors
+                };
+            }
+        }
+    }
+
+    // collapse the board a bit
+    for (x = 0; x <= boardWidth; x++) {
+        for (y = boardHeight-1; y > -1; y--) {
+
+            if(board[x][y].data === 0 && y > 0){
+                for(var yy = y; yy > 0; yy--){
+                    if(board[x][yy-1].data){
+
+                        board[x][yy].data = 1;
+                        board[x][yy].colors = board[x][yy-1].colors;
+
+                        board[x][yy-1].data = 0;
+                        board[x][yy-1].colors = ['rgb(0,0,0)', 'rgb(0,0,0)', 'rgb(0,0,0)'];
+                    }
+                } 
+            }
+        }
+    }
+
+    var self = this;
+
+    window.addEventListener('keydown', function (e) {
+        switch (e.keyCode) {
+            case 37:
+                if (self.checkMovement(curPiece, -1, 0)) {
+                    curPiece.x--;
+                }
+                break;
+            case 39:
+                if (self.checkMovement(curPiece, 1, 0)) {
+                    curPiece.x++;
+                }
+                break;
+            case 40:
+                if (self.checkMovement(curPiece, 0, 1)) {
+                    curPiece.y++;
+                }
+                
+                break;
+            case 32:
+            case 38:
+                curPiece.data = self.rotateTetrimono(curPiece);
+                break;
+            }
+    });
+
+    // render the board
+    this.checkLines();
+    this.renderBoard();
+
+    // assign the first tetri
+    this.newTetromino();
+   // this.update();
 };
 
 
@@ -388,6 +490,18 @@ Tetris.prototype.loseScreen = function() {
     }else{
         this.init();
     }
+};
+
+
+// Lose animation
+Tetris.prototype.clearScreen = function() {
+    
+
+  
+
+    
+        this.init();
+
 };
 
 // adds the piece as part of the board
