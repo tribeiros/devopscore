@@ -156,11 +156,11 @@ Tetris.prototype.init = function(){
                 document.getElementById("text").classList.add('enter');
                 var element = document.getElementById("meetup");
                 document.getElementById("text").innerHTML = "READY!";
-                self.reset();
                 setInterval(function(){
                   document.getElementById("text").innerHTML = "GO!";
                   element.classList.add("game");
                 }, 1000);
+                self.reset();
                 break;
             case 37:
                 if (self.checkMovement(curPiece, -1, 0)) {
