@@ -1,4 +1,21 @@
 'use strict';
+
+var w = window,
+    d = document,
+    e = d.documentElement,
+    g = d.getElementsByTagName('body')[0],
+    x = w.innerWidth || e.clientWidth || g.clientWidth,
+    y = w.innerHeight|| e.clientHeight|| g.clientHeight;
+
+if (x >= 1400){
+  var boardDivSpace = 20;
+  alert(boardDivSpace)
+} else {
+  var boardDivSpace = 21.2;
+  alert(boardDivSpace)
+}
+
+
 var tetrominos = [{
     // box
     colors : ['rgb(59,84,165)', 'rgb(118,137,196)', 'rgb(79,111,182)'],
@@ -558,7 +575,7 @@ Tetris.prototype.newTetromino = function() {
 };
 
 var width = window.innerWidth,
-    boardDiv = 21.2*Math.round(window.innerWidth/20),
+    boardDiv = boardDivSpace*Math.round(window.innerWidth/20),
     boards = 8,
     bWidth = boardDiv/boards,
     tetrisInstances = [];
