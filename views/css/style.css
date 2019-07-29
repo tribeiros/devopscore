@@ -1,3 +1,5 @@
+/* Fonts */
+/* Meetup Fonst */
 @font-face {
   font-family: 'Tetris1';
     src:  url('Tetris1.ttf.woff') format('woff'),
@@ -8,6 +10,7 @@
     font-style: normal;
 }
 
+/* press start Fonst */
 @font-face {
   font-family: 'NexaBold';
     src:  url('NexaBold.ttf.woff') format('woff'),
@@ -18,6 +21,8 @@
     font-style: normal;
 }
 
+/* animation */
+/* Title Presentation */
 @-webkit-keyframes bounceInUp {
   0% {
      opacity: 0;
@@ -36,7 +41,7 @@
     transform: translateY(0);
   }
 }
-         
+
 @keyframes bounceInUp {
   0% {
      opacity: 0;
@@ -60,6 +65,16 @@
   }
 }
 
+/* Start Game */
+@-webkit-keyframes fadeOut {
+  0% {
+     opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(2000px);
+  }
+}
 
 @keyframes fadeOut {
   0% {
@@ -68,6 +83,19 @@
   100% {
     opacity: 0;
     transform: translateY(2000px);
+  }
+}
+
+/* Version info */
+@-webkit-keyframes starting {
+  0% {
+    opacity: 0;
+  }
+  70%{
+    opacity: 0;
+  }
+  100% {
+    opacity: .6;
   }
 }
 
@@ -83,51 +111,7 @@
   }
 }
 
-.bounceInUp {
-  -webkit-animation-name: bounceInUp;
-  animation-name: bounceInUp;
-  -webkit-animation-duration: 7s;
-  animation-duration: 7s;
-  -webkit-animation-fill-mode: both;
-  animation-fill-mode: both;
-}
-
-p {
-  font-family:'Tetris1';
-  margin: 0 auto;
-  color: #fff;
-  padding-top: 50px;
-  font-size: 80px;
-  text-align: center;
-  text-shadow: 0 0 5px #141414;
-}
-
-#text::after {
-  content: "$BRANCH.$BUILD_NUMBER";
-  color: orange;
-  font-size: 20px;
-  font-family: 'NexaBold';
-  position: absolute;
-  bottom: -20px;
-  left: -2px;
-  right: -2px;
-  opacity: .6;
-  animation: starting 10s ;
-  visibility: hidden;
-}
-
-.enter::after {
-  display: none;
-}
-
-#text.placeholderVisible::after {
-  visibility: visible;
-}
-
-#text.placeholderContent::after {
-  content: "press enter to start";
-}
-
+/* Elements*/
 body{
   background: #141414;
   overflow:hidden;
@@ -141,9 +125,58 @@ canvas{
   z-index: -9999;
 }
 
+p {
+  font-family:'Tetris1';
+  margin: 0 auto;
+  color: #fff;
+  padding-top: 50px;
+  font-size: 80px;
+  text-align: center;
+  text-shadow: 0 0 5px #141414;
+}
+
+
+/* Ids */
 #meetup {
   width: 50%;
   margin: 0 auto;
+}
+
+#text.placeholderVisible::after {
+  visibility: visible;
+}
+
+#text.placeholderContent::after {
+  content: "press enter to start";
+}
+
+#text::after {
+  content: "$BRANCH.$BUILD_NUMBER";
+  color: orange;
+  font-size: 20px;
+  font-family: 'NexaBold';
+  position: absolute;
+  bottom: -20px;
+  left: -2px;
+  right: -2px;
+  opacity: .6;
+  -webkit-animation: starting 10s;
+  animation: starting 10s;
+  visibility: hidden;
+}
+
+/* Class */
+.bounceInUp {
+  -webkit-animation-name: bounceInUp;
+  animation-name: bounceInUp;
+  -webkit-animation-duration: 7s;
+  animation-duration: 7s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+.enter::after {
+  display: none;
 }
 
 .game {
